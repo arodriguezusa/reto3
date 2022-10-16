@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Boxicons CND Link -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/functions.js">
+    </script>
+    <title>Lib Rental</title>
+</head>
+<body>
+    <!-- Logo -->
+    <div class="sidebar">
+        <div class="logo-details">
+            <a href="" onclick="render('Welcome')">
+                <i class='bx bx-home-smile'></i>
+                <span class="logo-name">Gestion de Salas</span>
+            </a>
+        </div>
+            <!-- Menu list -->
+            <ul class="admin-menu">
+                <!-- Category Link -->
+                <li>
+                    <a href="#Categories" class="active"
+                        onclick="render('Category')">
+                        <i class='bx bx-grid'></i>
+                        <span class="links_name">Categorias</span>
+                    </a>
+                </li>
+                <!-- Library link -->
+                <li>
+                    <a href="#Lib" onclick="render('Lib')">
+                        <i class='bx bxs-castle'></i>
+                        <span class="links_name">Salas</span>
+                    </a>
+                </li>
+                <!-- Clients link -->
+                <li>
+                    <a href="#Clients" onclick="render('Client')">
+                        <i class='bx bxs-face-mask'></i>
+                        <span class="links_name">Clientes</span>
+                    </a>
+                </li>
+                <!-- Messages link -->
+                <li>
+                    <a href="#Messages" onclick="render('Message')">
+                        <i class='bx bx-message-dots'></i>
+                        <span class="links_name">Mensajes</span>
+                    </a>
+                </li>
+                <!-- Reservations link -->
+                <li>
+                    <a href="#Reservations" onclick="render('Reservation')">
+                        <i class='bx bx-calendar-plus'></i>
+                        <span class="links_name">Reservas</span>
+                    </a>
+                </li>
+                <!-- Log out link -->
+                <li class="log-out">
+                    <a href="#">
+                        <i class='bx bx-log-out-circle'></i>
+                        <span class="links_name">Log Out</span>
+                    </a>
+                </li>
+            </ul>
+    <!-- Search and user bar -->
+    <section class="search-and-user">
+        <nav>
+            <!-- Search box -->
+            <div class="search-box">
+                <input type="search" placeholder="Ingresa texto a Buscar">
+                <i class='bx bx-search-alt'></i>
+            </div>
+            <!-- User Profile -->
+            <div class="admin-profile">
+                <span class="greetings">Admin</span>
+                <i class='bx bxs-user' ></i>
+            </div>
+        </nav>
+    </section>
+    <!-- Home -->
+    <section class="home-section">
+        <!-- Welcome Message -->
+        <div class="welcome" id="Welcome">
+            <p><i class='bx bx-home-smile'></i></p>
+            <p>Bienvenido al dashboard de <span class="logo-name">
+                Gestion de Salas</span></p>
+        </div>
+        <!-- Category Interface -->
+        <div class="mid-container" id="Category">
+            <fieldset class="input">
+                <legend class="legend" align="center">Nuevo Registro</legend>
+                <p>
+                    <label for="catName">Nombre:</label>
+                    <input type="text" id="catName">
+                </p>
+                <br>
+                <p>
+                    <label for="catDescription">Descripción:</label>
+                    <textarea id="catDescription" rows="4" cols="40"></textarea>
+                </p>
+                <br>
+                <!-- Call the POST request on the Category table-->
+                <button onclick="saveInfo('Category')">Guardar
+                    <i class='bx bx-check'></i></button>
+            </fieldset>
+            <div class="info">
+                <table class="info-table" id="catResult">
+                    <caption>Información de Categorías</caption>
+                    <thead>
+                        <tr>
+                            <th>NOMBRE</th>
+                            <th>DESCRIPCIÓN</th>
+                            <th>SALAS</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                </table>
+                <br>
+                <!-- Call the GET request on the Category table-->
+                <button onclick="getInfo('Category')">Consultar</button>
+            </div>
+        </div>
+        <!-- Lib Interface -->
+        <div class="mid-container" id="Lib">
+            <fieldset class="input">
+                <legend class="legend" align="center">Nuevo Registro</legend>
+                <p>
+                    <label for="libraryName">Nombre:</label>
+                    <input type="text" id="libraryName">
+                </p>
+                <br>
+                <p>
+                    <label for="libraryTarget">Marca:</label>
+                    <input type="text" id="libraryTarget">
+                </p>
+                <br>
+                <p>
+                    <label for="libraryCapacity">Modelo:</label>
+                    <input type="number" id="libraryCapacity">
+                </p>
+                <br>
+                <p>
+                    <label for="libraryDescription">Descripción:</label>
+                    <textarea id="libraryDescription" rows="4" cols="40"></textarea>
+                </p>
+                <br>
+                <p>
+                    <label for="libraryCategory">Categoría:</label>
+                    <input type="number" id="libraryCategory">
+                </p>
+                <br>
+                <!-- Call the POST request on the Lib table-->
+                <button onclick="saveInfo('Lib')">Guardar
+                    <i class='bx bx-check'></i></button>
+            </fieldset>
+            <div class="info">
+                <table class="info-table" id="libaryResult">
+                    <caption>Información de Clientes</caption>
+                    <thead>
+                        <tr>
+                            <th>NOMBRE</th>
+                            <th>TARGET</th>
+                            <th>CAPACIDAD</th>
+                            <th>DESCRIPCIÓN</th>
+                            <th>CATEGORÍA</th>
+                            <th>MENSAJES</th>
+                            <th>RESERVACIONES</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                </table>
+                <br>
+                <!-- Call the GET request on the Lib table-->
+                <button onclick="getInfo('Lib')">Consultar</button>
+            </div>
+        </div>
+        <!-- Client Interface -->
+        <div class="mid-container" id="Client">
+            <fieldset class="input">
+                <legend class="legend" align="center">Nuevo Registro</legend>
+                <p>
+                    <label for="clientEmail">Email:</label>
+                    <input type="text" id="clientEmail">
+                </p>
+                <br>
+                <p>
+                    <label for="clientPassword">Password:</label>
+                    <input type="text" id="clientPassword">
+                </p>
+                <br>
+                <p>
+                    <label for="clientName">Nombre:</label>
+                    <input type="text" id="clientName">
+                </p>
+                <br>
+                <p>
+                    <label for="clientAge">Edad:</label>
+                    <input type="number" id="clientAge">
+                </p>
+                <br>
+                <!-- Call the POST request on the Client table-->
+                <button onclick="saveInfo('Client')">Guardar
+                    <i class='bx bx-check'></i></button>
+            </fieldset>
+            <div class="info">
+                <table class="info-table" id="clientResult">
+                    <caption>Información de Clientes</caption>
+                    <thead>
+                        <tr>
+                            <th>EMAIL</th>
+                            <th>PASSWORD</th>
+                            <th>NOMBRE</th>
+                            <th>EDAD</th>
+                            <th>MENSAJES</th>
+                            <th>RESERVACIONES</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                </table>
+                <br>
+                <!-- Call the GET request on the Client table-->
+                <button onclick="getInfo('Client')">Consultar</button>
+            </div>
+        </div>
+        <!-- Message Interface -->
+        <div class="mid-container" id="Message">
+            <fieldset class="input">
+                <legend class="legend" align="center">Nuevo Registro</legend>
+                <p>
+                    <label for="messageText">Mensaje:</label>
+                    <textarea id="messageText" rows="4" cols="40"></textarea>
+                </p>
+                <br>
+                <p>
+                    <label for="messageLib">Lib:</label>
+                    <input type="number" id="messageLib">
+                </p>
+                <br>
+                <p>
+                    <label for="messageClient">Client:</label>
+                    <input type="number" id="messageClient">
+                </p>
+                <br>
+                <!-- Call the POST request on the Message table-->
+                <button onclick="saveInfo('Message')">Guardar
+                    <i class='bx bx-check'></i></button>
+            </fieldset>
+            <div class="info">
+                <table class="info-table" id="messageResult">
+                    <caption>Información de Mensages</caption>
+                    <thead>
+                        <tr>
+                            <th>MENESAJE</th>
+                            <th>SALA</th>
+                            <th>CLIENTE</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                </table>
+                <br>
+                <!-- Call the GET request on the Message table-->
+                <button onclick="getInfo('Message')">Consultar</button>
+            </div>
+        </div>
+        <!-- Reservation Interface -->
+        <div class="mid-container" id="Reservation">
+            <fieldset class="input">
+                <legend class="legend" align="center">Nuevo Registro</legend>
+                <!-- <p>
+                    <label for="startDate">Inicio:</label>
+                    <input type="date" id="start">
+                </p>
+                <br> -->
+                <p>
+                    <label for="startDate">Inicio:</label>
+                    <input type="date" id="startDate">
+                </p>
+                <br>
+                <p>
+                    <label for="devolutionDate">Devolución:</label>
+                    <input type="date" id="devolutionDate">
+                </p>
+                <br>
+                <p>
+                    <label for="reservationLib">Lib:</label>
+                    <input type="number" id="reservationLib">
+                </p>
+                <br>
+                <p>
+                    <label for="reservationClient">Cliente:</label>
+                    <input type="number" id="reservationClient">
+                </p>
+                <br>
+                <!-- Call the POST request on the Reservation table-->
+                <button onclick="saveInfo('Reservation')">Guardar
+                    <i class='bx bx-check'></i></button>
+            </fieldset>
+            <div class="info">
+                <table class="info-table" id="reservResult">
+                    <caption>Información de Reservaciones</caption>
+                    <thead>
+                        <tr>
+                            <th>INICIO</th>
+                            <th>DEVOLUCION</th>
+                            <th>ESTADO</th>
+                            <th>SALA</th>
+                            <th>CLIENTE</th>
+                            <th>SCORE</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                </table>
+                <br>
+                <!-- Call the GET request on the Reservation table-->
+                <button onclick="getInfo('Reservation')">Consultar</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -5,6 +5,7 @@
 package Controller;
 
 import Model.Category;
+import Model.Library;
 import Service.CategoryService;
 import java.util.List;
 import java.util.Optional;
@@ -37,4 +38,16 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.CREATED)
     public Category save(@RequestBody Category category) {
         return categoryService.save(category); }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Category update(@RequestBody Category category) {
+        return categoryService.update(category);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int categoryId){
+        return categoryService.deleteCategory(categoryId);
+    }
 }   

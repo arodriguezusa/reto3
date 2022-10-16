@@ -66,7 +66,7 @@ public class LibraryService {
         return library;
     }
     
-    public boolean delete(int Id){
+    public boolean deleteLibrary(int Id){
         Boolean resultado = getLibrary(Id).map(libraryPorEliminar ->{
             libraryRepository.delete(libraryPorEliminar);
             return true;

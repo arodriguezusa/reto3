@@ -34,4 +34,6 @@ public class AdminRepository {
     public void delete(Admin admin){
         adminCrudRepository.delete(admin);
     }
+
+
 }

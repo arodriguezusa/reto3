@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/functions.js"></script>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <title>Reservaciones</title>
+</head>
+<body>
+    <h1>Gestion de Salas</h1>
+    <br>
+    <h3>Información de Reservaciones</h3>
+    <br>
+    <!-- Display Reservation table information-->
+    <table id="result">Lista de Reservaciones</table>
+    <br>
+    <!-- Display Reservation formulary-->
+    <fieldset style="width: 300px; margin: 0px auto;">
+        <legend>Nuevo Registro</legend>
+        <p>Fecha de Inicio: <input type="date" id="startDate"></p>
+        <p>Fecha de Devolución: <input type="date" id="devolutionDate"></p>
+        <p>Cliente: <input type="number" id="client"></p>
+        <p>
+            Categoría: <select id="library">
+                <option value="0">Elija una Sala</option>
+            </select>
+        </p>
+    </fieldset>
+    <br>
+    <fieldset style="width: 235px; margin: 0px auto;">
+        <!-- Call the GET request on the Reservation table-->
+        <button onclick="getInfo('Reservation')">Consultar</button>
+        <!-- Call the POST request on the Reservation table-->
+        <button onclick="saveInfo('Reservation')">Guardar</button>
+        <!-- Call the PUT request on the Reservation table-->
+        <button onclick="updateInfo('Reservation')">Actualizar</button>
+    </fieldset>
+</body>
+</html>

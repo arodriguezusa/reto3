@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/functions.js"></script>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Gestion de Salas</h1>
+    <br>
+    <h3>Información de Usuarios Adminstrativos</h3>
+    <br>
+    <!-- Display AdministrativeUsers table information-->
+    <table id="result">Lista de Usuarios Adminstrativos</table>
+    <br>
+    <!-- Display AdministrativeUsers formulary-->
+    <fieldset style="width: 300px; margin: 0px auto;">
+        <legend>Nuevo Registro</legend>
+        <p>Nombre: <input type="text" id="name"></p>
+        <p>Contraseña: <input type="text" id="password"></p>
+        <p>Correo electrónico: <input type="text" id="email"></p>
+    </fieldset>
+    <br>
+    <fieldset style="width: 235px; margin: 0px auto;">
+        <!-- Call the GET request on the AdministrativeUsers table-->
+        <button onclick="getInfo('Admin')">Consultar</button>
+        <!-- Call the POST request on the AdministrativeUsers table-->
+        <button onclick="saveInfo('Admin')">Guardar</button>
+        <!-- Call the PUT request on the AdministrativeUsers table-->
+        <button onclick="updateInfo('Admin')">Actualizar</button>
+    </fieldset>
+</body>
+</html>

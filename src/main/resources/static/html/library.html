@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/functions.js"></script>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <title>Gestion de Salas</title>
+</head>
+<body>
+    <h1>Gestion de Salas</h1>
+    <br>
+    <h3>Información de Salas</h3>
+    <br>
+    <!-- Display Library table information-->
+    <table id="result">Lista de Salas</table>
+    <br>
+    <!-- Display Library formulary-->
+    <fieldset style="width: 300px; margin: 0px auto;">
+        <legend>Nuevo Registro</legend>
+        <p>Target: <input type="text" id="target"></p>
+        <p>Capacidad: <input type="number" id="capacity"></p>
+        <p>
+            Categoría: <select id="category">
+                <option value="0">Elija una Categoría</option>
+            </select>
+        </p>
+        <p>Nombre: <input type="text" id="name"></p>
+        <p>
+            Descripción: <textarea id="description" rows="4" cols="40"></textarea>
+        </p>
+    </fieldset>
+    <br>
+    <fieldset style="width: 235px; margin: 0px auto;">
+        <!-- Call the GET request on the Library table-->
+        <button onclick="getInfo('Lib')">Consultar</button>
+        <!-- Call the POST request on the Library table-->
+        <button onclick="saveInfo('Lib')">Guardar</button>
+        <!-- Call the PUT request on the Library table-->
+        <button onclick="updateInfo('Lib')">Actualizar</button>
+    </fieldset>
+</body>
+</html>
